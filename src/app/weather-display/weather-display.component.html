@@ -1,0 +1,16 @@
+<!-- src/app/weather-display/weather-display.component.html -->
+
+<div>
+  <label for="cityInput">Stadt: </label>
+  <input type="text" id="cityInput" [ngModel]="city" (ngModelChange)="city = $event" (keyup.enter)="onCityInput()">
+  <button (click)="onCityInput()">Suchen</button>
+</div>
+
+<div *ngIf="weatherData">
+
+    <h2>Wetter in {{ city }}</h2>
+    <p>Temperatur: {{ weatherData.main.temp }}°C</p>
+    <p>Luftfeuchtigkeit: {{ weatherData.main.humidity }}%</p>
+    <p>Wetterbeschreibung: {{ weatherData.weather[0].description }}</p>
+  </div>
+  
